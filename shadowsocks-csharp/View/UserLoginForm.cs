@@ -10,6 +10,7 @@ using Shadowsocks.Util;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Shadowsocks.Controller;
 
 namespace Shadowsocks.View
 {
@@ -47,12 +48,23 @@ namespace Shadowsocks.View
         /// <param name="vercode"></param>
         private void LoginOperate(string own_mob_no,string own_pwd, string vercode)
         {
-            string sUrl =string.Format(domin+ "/index.php/Appclt/login?own_mob_no={0}&own_pwd={1}&vercode={2}", own_mob_no, own_pwd, vercode);
-            string result = HttpHelper.HttpGet(sUrl);
+            string sUrl =domin+ "/index.php/Appclt/login";
+            string body = string.Format("own_mob_no={0}&own_pwd={1}&vercode={2}", own_mob_no, own_pwd, vercode);
+            string result = HttpHelper.HttpPost(sUrl, body);
             JObject job = JObject.Parse(result);
             if (job["code"].ToString() == "200")
             {
-                TipHelper.Alert(job.ToString());
+                var user = JsonConvert.DeserializeObject<UserInfo>(Convert.ToString(job["entity"]));
+                TimeSpan d3 = user.expire_in.Subtract(DateTime.Now);
+                double seconds =d3.TotalSeconds;
+                //缓存用户信息
+                CacheHelper.SetCache("UserInfo", user, seconds);
+                
+                //弹出窗体
+                ShadowsocksController _controller = new ShadowsocksController();
+                ConfigForm cf = new ConfigForm(_controller, new UpdateChecker(),1);
+                cf.Show();
+                this.Hide();//隐藏登录窗体
             }
             else
             {

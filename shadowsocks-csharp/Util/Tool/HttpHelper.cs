@@ -12,17 +12,18 @@ namespace Shadowsocks.Util
     /// </summary>
     public class HttpHelper
     {
+        public static CookieContainer cookies = new CookieContainer();
+        private static string cookieStr = string.Empty;
+
         public static Stream GetHttpStream(string sUrl)
         {
-            string sResult = string.Empty;
-
             HttpWebRequest webRequest = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(sUrl);
-            webRequest.KeepAlive = false;
             webRequest.ProtocolVersion = HttpVersion.Version10;
             webRequest.Timeout = 30000;
-            webRequest.Method = WebRequestMethods.Http.Get;
-            webRequest.Headers.Add("Accept-Encoding", "gzip, deflate");
+            webRequest.Method = WebRequestMethods.Http.Post;
             HttpWebResponse webResponse = (System.Net.HttpWebResponse)webRequest.GetResponse();
+            //获取服务端返回的cookie
+            cookieStr= webResponse.Headers["Set-Cookie"].Split(';')[0];
             return webResponse.GetResponseStream();
         }
 
@@ -32,11 +33,12 @@ namespace Shadowsocks.Util
             try
             {
                 HttpWebRequest webRequest = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(sUrl);
-                webRequest.KeepAlive = false;
                 webRequest.ProtocolVersion = HttpVersion.Version10;
                 webRequest.Timeout = 30000;
                 webRequest.Method = WebRequestMethods.Http.Get;
-                webRequest.Headers.Add("Accept-Encoding", "gzip, deflate");  
+                webRequest.Headers.Add("Accept-Encoding", "gzip, deflate");
+                webRequest.Headers.Add("Cookie", cookieStr);
+
                 HttpWebResponse webResponse = (System.Net.HttpWebResponse)webRequest.GetResponse();
                 if (webResponse.ContentEncoding.ToLower() == "gzip")//如果使用了GZip则先解压
                 {
@@ -98,7 +100,9 @@ namespace Shadowsocks.Util
             webRequest.Timeout = 30000;
             webRequest.Method = "POST";
             webRequest.Headers.Add("Accept-Encoding", "gzip, deflate");
-           
+            webRequest.ContentType = "application/x-www-form-urlencoded";
+            webRequest.Headers.Add("Cookie", cookieStr);
+
             if (bPostData != null)
             {
                 Stream postDataStream = webRequest.GetRequestStream();

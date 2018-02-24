@@ -6,13 +6,9 @@ using System.Text;
 
 namespace Shadowsocks.Util
 {
-
-    /// <summary>
-    /// 缓存相关封装
-    /// </summary>
     public class CacheHelper
     {
-       
+     
         /// <summary>
         /// 设置缓存
         /// 如果设置相同的key的会覆盖原来的值
@@ -20,7 +16,7 @@ namespace Shadowsocks.Util
         /// <param name="key"></param>
         /// <param name="value"></param>
         /// <param name="seconds"></param>
-        public static void SetCache(string key, object value, int seconds)
+        public static void SetCache(string key, object value, double seconds)
         {
             MemoryCache.Default.Set(key, value, DateTimeOffset.UtcNow.AddSeconds(seconds));
         }
