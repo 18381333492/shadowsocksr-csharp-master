@@ -61,8 +61,7 @@ namespace Shadowsocks.View
                 CacheHelper.SetCache("UserInfo", user, seconds);
                 
                 //弹出窗体
-                ShadowsocksController _controller = new ShadowsocksController();
-                ConfigForm cf = new ConfigForm(_controller, new UpdateChecker(),1);
+                NewConfigForm cf = new NewConfigForm();
                 cf.Show();
                 this.Hide();//隐藏登录窗体
             }

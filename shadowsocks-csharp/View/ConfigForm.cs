@@ -67,8 +67,8 @@ namespace Shadowsocks.View
                 focusIndex = index;
             }
 
-            if (_modifiedConfiguration.isHideTips)
-                PictureQRcode.Visible = false;
+            //if (_modifiedConfiguration.isHideTips)
+            //    PictureQRcode.Visible = false;
 
             int dpi_mul = Util.Utils.GetDpiMul();
             //ServersListBox.Height = ServersListBox.Height * 4 / dpi_mul;

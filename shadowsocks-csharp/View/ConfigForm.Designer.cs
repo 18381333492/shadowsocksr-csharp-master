@@ -31,7 +31,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
-            this.PictureQRcode = new System.Windows.Forms.PictureBox();
             this.ServersListBox = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.ServerGroupBox = new System.Windows.Forms.GroupBox();
@@ -73,11 +72,11 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.DownButton = new System.Windows.Forms.Button();
             this.UpButton = new System.Windows.Forms.Button();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.MyCancelButton = new System.Windows.Forms.Button();
             this.OKButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureQRcode)).BeginInit();
+            this.PictureQRcode = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2.SuspendLayout();
             this.ServerGroupBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -85,8 +84,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.NumUDPPort)).BeginInit();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureQRcode)).BeginInit();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -121,18 +121,6 @@
             this.AddButton.Text = "&Add";
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
-            // 
-            // PictureQRcode
-            // 
-            this.PictureQRcode.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PictureQRcode.BackColor = System.Drawing.SystemColors.Control;
-            this.PictureQRcode.Location = new System.Drawing.Point(4, 135);
-            this.PictureQRcode.Margin = new System.Windows.Forms.Padding(4);
-            this.PictureQRcode.Name = "PictureQRcode";
-            this.PictureQRcode.Size = new System.Drawing.Size(260, 200);
-            this.PictureQRcode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PictureQRcode.TabIndex = 13;
-            this.PictureQRcode.TabStop = false;
             // 
             // ServersListBox
             // 
@@ -690,22 +678,6 @@
             this.UpButton.UseVisualStyleBackColor = true;
             this.UpButton.Click += new System.EventHandler(this.UpButton_Click);
             // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.AutoSize = true;
-            this.tableLayoutPanel5.ColumnCount = 1;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel5.Controls.Add(this.PictureQRcode, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(638, 3);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(12, 3, 3, 3);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 2;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(268, 470);
-            this.tableLayoutPanel5.TabIndex = 17;
-            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -752,6 +724,34 @@
             this.OKButton.UseVisualStyleBackColor = true;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
+            // PictureQRcode
+            // 
+            this.PictureQRcode.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PictureQRcode.BackColor = System.Drawing.SystemColors.Control;
+            this.PictureQRcode.Location = new System.Drawing.Point(4, 135);
+            this.PictureQRcode.Margin = new System.Windows.Forms.Padding(4);
+            this.PictureQRcode.Name = "PictureQRcode";
+            this.PictureQRcode.Size = new System.Drawing.Size(260, 200);
+            this.PictureQRcode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PictureQRcode.TabIndex = 13;
+            this.PictureQRcode.TabStop = false;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.AutoSize = true;
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel5.Controls.Add(this.PictureQRcode, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(638, 3);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(12, 3, 3, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(268, 470);
+            this.tableLayoutPanel5.TabIndex = 17;
+            // 
             // ConfigForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -770,7 +770,6 @@
             this.Text = "Edit Servers";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ConfigForm_FormClosed);
             this.Shown += new System.EventHandler(this.ConfigForm_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.PictureQRcode)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.ServerGroupBox.ResumeLayout(false);
@@ -782,10 +781,11 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureQRcode)).EndInit();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -800,10 +800,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button DownButton;
         private System.Windows.Forms.Button UpButton;
-        private System.Windows.Forms.PictureBox PictureQRcode;
         private System.Windows.Forms.LinkLabel LinkUpdate;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.GroupBox ServerGroupBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ComboBox ObfsCombo;
@@ -841,6 +839,8 @@
         private System.Windows.Forms.Label labelProtocolParam;
         private System.Windows.Forms.TextBox TextProtocolParam;
         private System.Windows.Forms.CheckBox IPLabel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.PictureBox PictureQRcode;
     }
 }
 

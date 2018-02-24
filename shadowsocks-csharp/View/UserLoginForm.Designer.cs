@@ -64,7 +64,7 @@ namespace Shadowsocks.View
             this.LoginBtn.Location = new System.Drawing.Point(205, 212);
             this.LoginBtn.Name = "LoginBtn";
             this.LoginBtn.Size = new System.Drawing.Size(75, 23);
-            this.LoginBtn.TabIndex = 2;
+            this.LoginBtn.TabIndex = 3;
             this.LoginBtn.Text = "登  录";
             this.LoginBtn.UseVisualStyleBackColor = true;
             this.LoginBtn.Click += new System.EventHandler(this.Login);
@@ -74,7 +74,7 @@ namespace Shadowsocks.View
             this.ResetBtn.Location = new System.Drawing.Point(309, 212);
             this.ResetBtn.Name = "ResetBtn";
             this.ResetBtn.Size = new System.Drawing.Size(75, 23);
-            this.ResetBtn.TabIndex = 3;
+            this.ResetBtn.TabIndex = 4;
             this.ResetBtn.Text = "重  置";
             this.ResetBtn.UseVisualStyleBackColor = true;
             this.ResetBtn.Click += new System.EventHandler(this.Reset);
@@ -85,7 +85,7 @@ namespace Shadowsocks.View
             this.UserNameLabel.Location = new System.Drawing.Point(157, 90);
             this.UserNameLabel.Name = "UserNameLabel";
             this.UserNameLabel.Size = new System.Drawing.Size(41, 12);
-            this.UserNameLabel.TabIndex = 4;
+            this.UserNameLabel.TabIndex = 5;
             this.UserNameLabel.Text = "用户名";
             // 
             // UserPwdLabel
@@ -112,7 +112,7 @@ namespace Shadowsocks.View
             this.Code.Location = new System.Drawing.Point(206, 173);
             this.Code.Name = "Code";
             this.Code.Size = new System.Drawing.Size(85, 21);
-            this.Code.TabIndex = 8;
+            this.Code.TabIndex = 2;
             // 
             // PictureCode
             // 

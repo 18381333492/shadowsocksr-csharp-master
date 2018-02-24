@@ -190,7 +190,7 @@
     <Compile Include="Util\Tool\HttpHelper.cs" />
     <Compile Include="Util\Tool\TipHelper.cs" />
     <Compile Include="Util\Tool\CacheHelper.cs" />
-    <Compile Include="Util\Tool\UserInfo.cs" />
+    <Compile Include="Util\Tool\Model.cs" />
     <Compile Include="Util\Util.cs" />
     <Compile Include="View\ConfigForm.cs">
       <SubType>Form</SubType>
@@ -217,6 +217,12 @@
       <DependentUpon>LogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MenuViewController.cs" />
+    <Compile Include="View\NewConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NewConfigForm.Designer.cs">
+      <DependentUpon>NewConfigForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\PortSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\LogForm.resx">
       <DependentUpon>LogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NewConfigForm.resx">
+      <DependentUpon>NewConfigForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PortSettingsForm.resx">
       <DependentUpon>PortSettingsForm.cs</DependentUpon>
