@@ -24,6 +24,8 @@ namespace Shadowsocks.View
         {
             InitializeComponent();
             GetServerList();
+            this.TipValue.Text = "请尽量选择当前接入用户比较少的服务器,便于网络流畅性体验";
+            this.TipValue.Enabled = false;//只读
         }
 
         /// <summary>
@@ -84,6 +86,28 @@ namespace Shadowsocks.View
         private void NewConfigForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        /// <summary>
+        /// 接入服务操作
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ServerBtn_Click(object sender, EventArgs e)
+        {
+            string sUrl = domin + "/index.php/Appclt/accessact";
+            var item = this.ServerlistBox.SelectedItem as ServerTextValue;//获取当前的选中的服务器
+            string body= "serverid="+item.value;
+            string result=HttpHelper.HttpPost(sUrl, body);
+            JObject job = JObject.Parse(result);
+            if (job["code"].ToString() == "200")
+            {
+
+            }
+            else
+            {
+                TipHelper.Alert(Convert.ToString(job["msg"]));
+            }
         }
     }
 }

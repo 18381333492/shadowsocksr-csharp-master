@@ -114,6 +114,7 @@
             this.ServerBtn.TabIndex = 8;
             this.ServerBtn.Text = "接入服务";
             this.ServerBtn.UseVisualStyleBackColor = true;
+            this.ServerBtn.Click += new System.EventHandler(this.ServerBtn_Click);
             // 
             // InternetValue
             // 
@@ -196,7 +197,7 @@
             this.MinimizeBox = false;
             this.Name = "NewConfigForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NewConfigForm";
+            this.Text = "ServerList";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NewConfigForm_FormClosed);
             this.ServerGroupBox.ResumeLayout(false);
             this.LinkGroupBox.ResumeLayout(false);
