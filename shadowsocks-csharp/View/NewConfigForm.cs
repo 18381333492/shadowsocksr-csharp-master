@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Shadowsocks.Util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Shadowsocks.Controller;
 
 namespace Shadowsocks.View
 {
@@ -20,12 +21,18 @@ namespace Shadowsocks.View
         //缓存的服务器列表
         private static List<ServerItem> serverList = new List<ServerItem>();
 
+        private ShadowsocksController controller;
+        private UpdateChecker updateChecker;
         public NewConfigForm()
         {
             InitializeComponent();
             GetServerList();
             this.TipValue.Text = "请尽量选择当前接入用户比较少的服务器,便于网络流畅性体验";
             this.TipValue.Enabled = false;//只读
+
+            //执行代理相关逻辑
+            this.controller = new ShadowsocksController();
+            this.updateChecker = new UpdateChecker();
         }
 
         /// <summary>
