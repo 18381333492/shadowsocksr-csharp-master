@@ -10,6 +10,7 @@ using Shadowsocks.Util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Shadowsocks.Controller;
+using Shadowsocks.Model;
 
 namespace Shadowsocks.View
 {
@@ -109,12 +110,23 @@ namespace Shadowsocks.View
             JObject job = JObject.Parse(result);
             if (job["code"].ToString() == "200")
             {
-
+                //创建服务
+                Server server = new Server();
+                RunServer(server);
             }
             else
             {
                 TipHelper.Alert(Convert.ToString(job["msg"]));
             }
+        }
+
+
+        /// <summary>
+        /// 接入服务
+        /// </summary>
+        public void RunServer(Server server)
+        {
+            //server.
         }
     }
 }

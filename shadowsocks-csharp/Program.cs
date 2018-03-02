@@ -81,12 +81,13 @@ namespace Shadowsocks
                 //   _viewController = new MenuViewController(_controller);
 #endif
 
-                 // _controller.Start();
+                // _controller.Start();
 
 #if !_CONSOLE
                 //  Util.Utils.ReleaseMemory();
 
-                Application.Run(new UserLoginForm());
+                // Application.Run(new UserLoginForm());
+                Application.Run(new ConfigForm(new ShadowsocksController(), new UpdateChecker(), 1));
             }
 #else
             Console.ReadLine();
